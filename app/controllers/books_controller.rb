@@ -14,8 +14,14 @@ class BooksController < ApplicationController
   
   def create
     book = Book.new(book_params)
-    book.save
+    if book.save
+    flash[:notice] = 'Book was successfully created.'  
+    flash[:alert] = "名前を入力してください"
     redirect_to book_path(book.id)
+    end
+  end
+  
+  def save
   end
   
   def edit
