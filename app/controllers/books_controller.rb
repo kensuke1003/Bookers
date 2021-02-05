@@ -15,9 +15,11 @@ class BooksController < ApplicationController
   def create
     book = Book.new(book_params)
     if book.save
-    flash[:notice] = 'Book was successfully created.'  
-    flash[:alert] = "名前を入力してください"
-    redirect_to book_path(book.id)
+      flash[:notice] = 'Book was successfully created.'  
+      flash[:alert] = "名前を入力してください"
+        redirect_to book_path(book.id)
+      else
+          render :index
     end
   end
   
